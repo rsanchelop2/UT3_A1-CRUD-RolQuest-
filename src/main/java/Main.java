@@ -1,3 +1,4 @@
+import model.entity.FichaDetalle;
 import model.entity.Mision;
 import model.entity.Partida;
 import model.entity.Personaje;
@@ -46,5 +47,18 @@ public class Main {
         System.out.println("Personajes guardados: " + personajeService.getAllPersonajes().size());
         System.out.println("Misiones guardadas: " + misionService.getAllMisiones().size());
         System.out.println("Partidas guardadas: " + partidaService.getAllPartidas().size());
+
+        FichaDetalle fichaDetalle = new FichaDetalle();
+        fichaDetalle.setDescripcion("Hechicero");
+        fichaDetalle.setRaza("Elfo");
+        fichaDetalle.setAlineamiento("Legal Bueno");
+        fichaDetalle.setDeidad("Hatsume Miku");
+
+        Personaje personaje = new Personaje();
+        personaje.setNombre("Frieren");
+        personaje.setFichaDetalle(fichaDetalle);
+
+        fichaDetalle.setPersonaje(personaje);
+        personajeService.create(personaje);
     }
 }
