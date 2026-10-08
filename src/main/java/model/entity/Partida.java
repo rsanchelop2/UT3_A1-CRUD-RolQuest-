@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import model.enums.PartidaEstado;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "partidas")
@@ -26,6 +28,9 @@ public class Partida {
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)
     private PartidaEstado estado;
+
+    @OneToMany(mappedBy = "partidaID", cascade = CascadeType.ALL)
+    private List<Mision> misiones = new ArrayList<>();
 
 
     //region Getters & Setter
@@ -67,6 +72,9 @@ public class Partida {
 
     public void setEstado(PartidaEstado estado) {
         this.estado = estado;
+    }
+
+    public void setMision(Mision misiones) {
     }
     //endregion
 }

@@ -48,6 +48,7 @@ public class Main {
         System.out.println("Misiones guardadas: " + misionService.getAllMisiones().size());
         System.out.println("Partidas guardadas: " + partidaService.getAllPartidas().size());
 
+        // A2
         FichaDetalle fichaDetalle = new FichaDetalle();
         fichaDetalle.setDescripcion("Hechicero");
         fichaDetalle.setRaza("Elfo");
@@ -60,5 +61,15 @@ public class Main {
 
         fichaDetalle.setPersonaje(personaje);
         personajeService.create(personaje);
+
+        // A3
+        Mision mision = new Mision();
+        mision.setActiva(false);
+        mision.setDescripcion("Recolectar 10 setas");
+        mision.setDificultad(MisionDificultad.BAJA);
+        mision.setTitulo("Recoleccion del bosque");
+        mision.setRecompensa(100);
+
+        partida.setMision(mision);
     }
 }
